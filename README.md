@@ -115,3 +115,18 @@ A simple example of visualizing the similarity between the synthetic running&jum
 Running&JumpingVisualization.ipynb
 ```
 ---
+
+**FAQ**
+
+> ImportError: DLL load failed while importing sparse: The paging file is too small for this operation to complete.
+
+Make sure you're using CUDA 10.x. You may need to install a different version of PyTorch.
+
+```
+python -m pip uninstall torch torchvision torchaudio
+python -m pip cache remove *
+python -m pip install -r requirements.txt
+```
+
+If you need CUDA 11.x, please see this StackOverflow post: https://stackoverflow.com/a/69489193
+This should (hopefully) not be necessary with CUDA 11.7+, once it's supported by PyTorch.
